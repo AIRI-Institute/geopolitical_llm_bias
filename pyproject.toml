@@ -1,0 +1,25 @@
+[project]
+name = "geopolitical_llm_bias"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Lazichny",email = "ivanlazichny@gmail.com "}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "rich",
+    "httpx",
+    "python-dotenv",
+    "pydantic",
+    "openai==1.77.0",
+    "googletrans",
+    "gigachat==0.1.39.post1",
+    "instructor==1.8.0"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

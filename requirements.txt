@@ -1,0 +1,9 @@
+pandas
+rich
+httpx
+python-dotenv
+pydantic
+openai==1.77.0
+googletrans
+gigachat==0.1.39.post1  # если это сторонний модуль, то нужно уточнить его установку
+instructor==1.8.0  # если доступен через pip, иначе указать ссылку на репозиторий
