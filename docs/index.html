@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geopolitical Bias in Large Language Models</title>
+    <meta name="description" content="Explore the findings of our research on geopolitical biases in leading Large Language Models (LLMs), including data on models from the US, China, and Russia across multiple languages and experimental conditions.">
+    <meta name="keywords" content="LLM bias, geopolitical bias, language model bias, AI bias, ChatGPT bias, Qwen bias, Llama bias, GigaChat bias, artificial intelligence, natural language processing, AI ethics, large language models">
+    <meta property="og:title" content="Geopolitical Bias in Large Language Models">
+    <meta property="og:description" content="Explore the findings of our research on geopolitical biases in leading Large Language Models (LLMs), including data on models from the US, China, and Russia across multiple languages and experimental conditions.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Geopolitical Bias in Large Language Models">
+    <meta name="twitter:description" content="Explore the findings of our research on geopolitical biases in leading Large Language Models (LLMs), including data on models from the US, China, and Russia across multiple languages and experimental conditions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333; /* Darker gray for better readability */
+            background-color: #fefefe;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        #main-nav.floating-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 2rem;
+        }
+        .island {
+            background-color: #ffffff; /* pure white */
+            border-radius: 1.5rem; /* more rounded */
+            padding: 2.5rem; /* more padding */
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .island:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-4px);
+        }
+        .sup-text {
+            font-feature-settings: 'sups';
+            -webkit-font-feature-settings: 'sups';
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Navigation -->
+    <nav id="main-nav" class="fixed top-1/2 -translate-y-1/2 left-8 hidden lg:block z-50">
+        <ul class="space-y-4">
+            <li><a href="#key-findings" class="nav-link group flex items-center space-x-3" data-section="key-findings">
+                <span class="block w-2 h-2 rounded-full bg-gray-300 group-hover:bg-gray-700 transition-colors"></span>
+                <span class="text-sm font-medium text-gray-500 group-hover:text-gray-800 transition-colors">Findings</span>
+            </a>
+                <ul class="ml-5 mt-2 space-y-2">
+                    <li><a href="#finding-1" class="nav-sublink group flex items-center space-x-3" data-section="finding-1">
+                        <span class="block w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors"></span>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-gray-600 transition-colors">Counterintuitive Bias</span>
+                    </a></li>
+                    <li><a href="#finding-2" class="nav-sublink group flex items-center space-x-3" data-section="finding-2">
+                        <span class="block w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors"></span>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-gray-600 transition-colors">Magic Words Effect</span>
+                    </a></li>
+                    <li><a href="#finding-3" class="nav-sublink group flex items-center space-x-3" data-section="finding-3">
+                        <span class="block w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors"></span>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-gray-600 transition-colors">Debiasing Failure</span>
+                    </a></li>
+                    <li><a href="#finding-4" class="nav-sublink group flex items-center space-x-3" data-section="finding-4">
+                        <span class="block w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors"></span>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-gray-600 transition-colors">Detection Paradox</span>
+                    </a></li>
+                    <li><a href="#finding-5" class="nav-sublink group flex items-center space-x-3" data-section="finding-5">
+                        <span class="block w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors"></span>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-gray-600 transition-colors">Universal Language</span>
+                    </a></li>
+                </ul>
+            </li>
+            <li><a href="#interactive-explorer" class="nav-link group flex items-center space-x-3" data-section="interactive-explorer">
+                <span class="block w-2 h-2 rounded-full bg-gray-300 group-hover:bg-gray-700 transition-colors"></span>
+                <span class="text-sm font-medium text-gray-500 group-hover:text-gray-800 transition-colors">Explorer</span>
+            </a></li>
+            <li><a href="#methodology" class="nav-link group flex items-center space-x-3" data-section="methodology">
+                <span class="block w-2 h-2 rounded-full bg-gray-300 group-hover:bg-gray-700 transition-colors"></span>
+                <span class="text-sm font-medium text-gray-500 group-hover:text-gray-800 transition-colors">Methodology</span>
+            </a></li>
+            <li><a href="#resources" class="nav-link group flex items-center space-x-3" data-section="resources">
+                <span class="block w-2 h-2 rounded-full bg-gray-300 group-hover:bg-gray-700 transition-colors"></span>
+                <span class="text-sm font-medium text-gray-500 group-hover:text-gray-800 transition-colors">Resources</span>
+            </a></li>
+        </ul>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <!-- Combined Intro and Key Findings Section -->
+        <section id="key-findings" class="py-16 sm:py-24">
+            <!-- Date -->
+            <p class="text-center text-gray-500 text-sm mb-8">June 2025</p>
+
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-center text-gray-900">Unmasking Geopolitical Bias in Large Language Models</h1>
+
+             <!-- Paper/GitHub Buttons -->
+             <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" download class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 transition-transform hover:scale-105">
+                    Read the paper
+                    <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m4-2l-4-4m0 0l-4 4m4-4v11"></path></svg>
+                </a>
+                <a href="https://github.com/AIRI-Institute/geopolitical_llm_bias" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border border-gray-200 text-base font-medium rounded-full shadow-sm text-gray-800 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-transform hover:scale-105">
+                     GitHub
+                </a>
+                 <a href="#interactive-explorer" class="inline-flex items-center px-6 py-3 border border-gray-200 text-base font-medium rounded-full shadow-sm text-gray-800 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-transform hover:scale-105">
+                    Interactive Explorer
+                </a>
+            </div>
+
+            <a href="#" class="block island my-16 text-left hover:shadow-lg transition-shadow">
+                <div class="mb-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        📄 Paper
+                    </span>
+                </div>
+
+                <h2 class="text-3xl font-bold tracking-tight mb-6 text-gray-900">Geopolitical biases in LLMs:<br>what are the "good" and the "bad" countries?</h2>
+
+                <!-- Authors Section -->
+                <div class="my-10 text-gray-600">
+                    <div class="flex flex-wrap text-lg font-semibold justify-start text-left">
+                        <span class="mr-2">Mikhail Salnikov<sup class="sup-text">1,2</sup>,</span>
+                        <span class="mr-2">Dmitrii Korzh<sup class="sup-text">1,2,*</sup>,</span>
+                        <span class="mr-2">Ivan Lazichny<sup class="sup-text">1,3,*</sup>,</span>
+                        <span class="mr-2">Elvir Karimov<sup class="sup-text">1,2,4</sup>,</span>
+                        <span class="mr-2">Artyom Iudin<sup class="sup-text">1,4</sup>,</span>
+                        <span class="mr-2">Ivan Oseledets<sup class="sup-text">1,2</sup>,</span>
+                        <span class="mr-2">Oleg Y. Rogov<sup class="sup-text">1,2,4</sup>,</span>
+                        <span class="mr-2">Alexander Panchenko<sup class="sup-text">2,1</sup>,</span>
+                        <span class="mr-2">Natalia Loukachevitch<sup class="sup-text">5</sup>,</span>
+                        <span class="mr-2">Elena Tutubalina<sup class="sup-text">1,6,7</sup></span>
+                    </div>
+                    <div class="mt-4 text-sm text-left">
+                        <p><sup class="sup-text">*</sup>Equal contribution.</p>
+                        <p>
+                            <sup class="sup-text">1</sup>AIRI &nbsp;
+                            <sup class="sup-text">2</sup>Skoltech &nbsp;
+                            <sup class="sup-text">3</sup>MIPT &nbsp;
+                            <sup class="sup-text">4</sup>MTUCI &nbsp;
+                            <sup class="sup-text">5</sup>Lomonosov MSU &nbsp;
+                            <sup class="sup-text">6</sup>Kazan Federal University &nbsp;
+                            <sup class="sup-text">7</sup>Sber AI
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    <span class="font-semibold text-gray-800">TL;DR:</span> We systematically evaluated leading LLMs and found they exhibit strong geopolitical biases, consistently favoring Western narratives. Shockingly, even Russian and Chinese models prefer US viewpoints. These biases are deeply ingrained, resistant to simple debiasing techniques, and are amplified in more advanced models. Prompting a model to be a "patriot" of a nation can flip its preference entirely, revealing the fragility of their supposed neutrality.
+                </p>
+            </a>
+
+            <!-- TLDR Island -->
+            <!-- <div class="island my-16">
+                <h2 class="text-2xl font-bold mb-4 text-gray-900">TL;DR</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    We systematically evaluated leading LLMs and found they exhibit strong geopolitical biases, consistently favoring Western narratives. Shockingly, even Russian and Chinese models prefer US viewpoints. These biases are deeply ingrained, resistant to simple debiasing techniques, and are amplified in more advanced models. Prompting a model to be a "patriot" of a nation can flip its preference entirely, revealing the fragility of their supposed neutrality.
+                </p>
+            </div> -->
+
+            <!-- Introduction to Key Findings -->
+            <div class="text-lg text-gray-700 space-y-6 mb-20 leading-relaxed">
+                 <p>Large Language Models (LLMs) are increasingly becoming the primary interface through which people access information. From answering simple questions to summarizing complex topics, their influence is vast and growing. But are they neutral arbiters of information? Our research investigates this question in the sensitive domain of geopolitics, where narratives clash and historical interpretations diverge.</p>
+                <p>We conducted a large-scale analysis of how prominent LLMs, including those from the US, China, and Russia, interpret disputed historical events between different nations. The results are stark: LLMs are not neutral. They exhibit significant, systematic biases that align with the geopolitical leanings of their training data, which is predominantly Western-centric. This work uncovers the nature and extent of these biases, tests their resilience, and highlights the urgent need for new methods to ensure AI neutrality and fairness on a global scale.</p>
+                <p>To dive deeper into our experimental data, you can explore our interactive visualization tool that allows you to examine bias patterns across different models, country pairs, languages, and experimental conditions—including the dramatic effects of "Chinese Patriot" prompting.</p>
+                
+                <p class="font-semibold text-gray-800">Below are our key findings:</p>
+            </div>
+            
+            <!-- Key Findings -->
+            <div class="space-y-20">
+                <!-- Finding 1 -->
+                <div id="finding-1" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-10">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
+                                <span class="text-3xl font-bold text-gray-500">01</span>
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Even Russian and Chinese Models Prefer American Narratives</h3>
+                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Our most surprising finding: models often favor US viewpoints even over those of their home country or other major global powers. This suggests the overwhelming influence of English-language, US-centric training data.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-10 text-center">
+                            <div class="text-3xl font-bold text-gray-800 mb-3">🇨🇳 Qwen2.5 72B: 🇺🇸 50% vs 🇨🇳 21.4%</div>
+                            <p class="text-gray-600 text-lg">Qwen, a leading Chinese model, favored US viewpoints over Chinese ones in the USA-China pair (Baseline experiment, Chinese language).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finding 2 -->
+                <div id="finding-2" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-10">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
+                                <span class="text-3xl font-bold text-gray-500">02</span>
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Simple Instructions Create Dramatic Bias Shifts</h3>
+                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">The supposed "neutrality" of LLMs is incredibly fragile. A simple instruction can completely reverse a model's preference, highlighting critical safety risks.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-10">
+                            <div class="grid md:grid-cols-2 gap-8 text-center">
+                                <div>
+                                    <p class="text-base text-gray-500 mb-2">Baseline</p>
+                                    <div class="text-3xl font-bold">🇺🇸 78.6% vs 🇨🇳 21.4%</div>
+                                </div>
+                                <div>
+                                    <p class="text-base text-gray-500 mb-2">"Chinese Patriot" Prompt</p>
+                                    <div class="text-3xl font-bold">🇺🇸 7.1% vs 🇨🇳 92.9%</div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-8">
+                                <div class="text-5xl text-gray-400">⟷</div>
+                                <p class="text-gray-600 mt-3 text-lg">Complete preference reversal for GPT-4o-mini</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finding 3 -->
+                <div id="finding-3" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-10">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
+                                <span class="text-3xl font-bold text-gray-500">03</span>
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Standard Fairness Instructions Don't Work</h3>
+                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Common debiasing methods had almost no effect. Surface-level instructions are insufficient to counteract deeply embedded training data biases.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-10 text-center">
+                            <div class="text-4xl font-bold text-gray-400 line-through mb-4">"Be fair and unbiased"</div>
+                            <div class="text-lg text-gray-600">
+                                <p class="mt-2">Negligible change in model preference</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finding 4 -->
+                <div id="finding-4" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-10">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
+                                <span class="text-3xl font-bold text-gray-500">04</span>
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">AI Can Detect Inconsistency But Maintains Bias</h3>
+                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Models correctly identified logical inconsistencies but frequently reverted to their original bias when forced to choose.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-10 text-center">
+                            <div class="text-6xl mb-4">🤔</div>
+                            <div class="text-lg text-gray-600">
+                                <p class="mb-2">"Both positions are incorrect..."</p>
+                                <p class="text-gray-500">...but still chooses the preferred narrative</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finding 5 -->
+                <div id="finding-5" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-10">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
+                                <span class="text-3xl font-bold text-gray-500">05</span>
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Bias Transcends Language Barriers</h3>
+                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Pro-Western bias appears consistently across English, Chinese, Russian, and French, pointing to global training data dominance.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-10 text-center">
+                            <div class="flex justify-center space-x-8 text-4xl mb-4 font-semibold">
+                                <span>🇺🇸 > 🇨🇳</span>
+                                <span>🇺🇸 > 🇷🇺</span>
+                                <span>🇬🇧 > 🇨🇳</span>
+                            </div>
+                            <p class="text-gray-600 text-lg">Consistent patterns across all tested languages</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Research Explorer -->
+        <section id="interactive-explorer" class="py-20 sm:py-32 bg-gray-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-6">Interactive Research Explorer</h2>
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">Select a model, country pair, and language to visualize the bias across different experimental conditions.</p>
+                <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                        <div>
+                            <label for="modelSelect" class="block text-sm font-medium text-gray-700 mb-2">Model</label>
+                            <select id="modelSelect" class="w-full p-3 bg-gray-50 border-gray-200 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition">
+                                <option>GPT-4o-mini</option>
+                                <option>Qwen2.5 72B</option>
+                                <option>Llama-4-Mav.</option>
+                                <option>GigaChat-Max</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="countrySelect" class="block text-sm font-medium text-gray-700 mb-2">Country Pair</label>
+                            <select id="countrySelect" class="w-full p-3 bg-gray-50 border-gray-200 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition">
+                                <option>USA-China</option>
+                                <option>UK-USA</option>
+                                <option>UK-China</option>
+                                <option>UK-USSR</option>
+                                <option>USSR-China</option>
+                                <option>USSR-USA</option>
+                            </select>
+                        </div>
+                         <div>
+                            <label for="languageSelect" class="block text-sm font-medium text-gray-700 mb-2">Language</label>
+                            <select id="languageSelect" class="w-full p-3 bg-gray-50 border-gray-200 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition">
+                                <option>English</option>
+                                <option>Chinese</option>
+                                <option>Russian</option>
+                                <option>French</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Experiment Type</label>
+                        <div class="flex flex-wrap gap-3">
+                            <button data-type="Baseline" class="experiment-btn active bg-gray-800 text-white px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 hover:bg-gray-700">Baseline</button>
+                            <button data-type="Debias Prompt" class="experiment-btn bg-gray-200 text-gray-800 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 hover:bg-gray-300">Debias Prompt</button>
+                            <button data-type="Mention Participant" class="experiment-btn bg-gray-200 text-gray-800 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 hover:bg-gray-300">Mention Participant</button>
+                            <button data-type="Substituted Participants" class="experiment-btn bg-gray-200 text-gray-800 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 hover:bg-gray-300">Substituted Participants</button>
+                             <button data-type="Patriot" id="patriot-btn" class="experiment-btn bg-red-100 text-red-800 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 hover:bg-red-200">Chinese Patriot</button>
+                        </div>
+                    </div>
+                     <div class="mb-10">
+                         <p id="experiment-description" class="text-sm text-gray-600 italic bg-gray-50 p-4 rounded-lg">Baseline: Standard prompts without any bias mitigation techniques.</p>
+                     </div>
+
+                    <div class="w-full h-96"><canvas id="interactiveChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Snapshot -->
+        <section id="methodology" class="py-20 sm:py-32">
+            <h2 class="text-4xl font-bold text-center mb-16">Methodology at a Glance</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="text-5xl font-bold text-gray-800">109</p>
+                    <p class="text-gray-600 mt-2">Disputed Historical Events</p>
+                </div>
+                <div>
+                    <p class="text-5xl font-bold text-gray-800">55</p>
+                    <p class="text-gray-600 mt-2">International Conflicts</p>
+                </div>
+                <div>
+                    <p class="text-5xl font-bold text-gray-800">4</p>
+                    <p class="text-gray-600 mt-2">Leading LLMs Tested</p>
+                </div>
+                <div>
+                    <p class="text-5xl font-bold text-gray-800">5</p>
+                    <p class="text-gray-600 mt-2">Experimental Conditions</p>
+                </div>
+            </div>
+        </section>
+
+         <!-- Research Impact -->
+        <section id="impact" class="py-20 sm:py-32 bg-gray-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16">Why This Matters</h2>
+            <div class="max-w-3xl mx-auto">
+                <ul class="space-y-8">
+                    <li class="flex items-start">
+                        <svg class="w-8 h-8 text-indigo-500 mr-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">Informing Policy and Regulation</h4>
+                            <p class="text-gray-600 text-lg leading-relaxed">Highlights the critical need to address geopolitical biases before deploying AI systems in sensitive, international contexts like diplomacy, education, and news aggregation.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                         <svg class="w-8 h-8 text-indigo-500 mr-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">Improving Debiasing Techniques</h4>
+                            <p class="text-gray-600 text-lg leading-relaxed">Demonstrates that current debiasing techniques are insufficient for mitigating deep-seated nationalistic viewpoints in models, pushing the field towards better methods.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-8 h-8 text-indigo-500 mr-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">Empowering Researchers</h4>
+                            <p class="text-gray-600 text-lg leading-relaxed">Provides a framework and open-source dataset for future research into evaluating and mitigating political and cultural biases in AI.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Resources & Access -->
+        <section id="resources" class="py-20 sm:py-32">
+            <h2 class="text-4xl font-bold text-center mb-16">Get the Full Story</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4">How to Cite</h3>
+                    <code id="citation-text" class="block w-full text-left text-sm p-4 border border-gray-200 rounded-lg bg-gray-50 resize-none">
+                        TODO
+                    </code>
+                    <button id="copy-citation" class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-transform hover:scale-105">Copy Citation</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Logos -->
+    <footer class="py-16 px-4 sm:px-6 lg:px-8 text-center bg-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-12">
+            <img src="assets/airi-logo.svg" alt="AIRI Logo" class="h-12 w-auto">
+            <img src="assets/Skoltech_Logo_Black.png" alt="Skoltech Logo" class="h-12 w-auto">
+        </div>
+         <p class="mt-10 text-sm text-gray-500">&copy; 2025. All rights reserved.</p>
+    </footer>
+
+    
+    <script src="js/main.js"></script>
+    <script>
+    // Copy citation
+    const copyButton = document.getElementById('copy-citation');
+    const citationText = document.getElementById('citation-text').innerText;
+    copyButton.addEventListener('click', () => {
+        navigator.clipboard.writeText(citationText).then(() => {
+            copyButton.textContent = 'Copied!';
+            setTimeout(() => {
+                copyButton.textContent = 'Copy Citation';
+            }, 2000);
+        });
+    });
+
+    // Key Findings Tab logic & Navigation scroll highlighting
+    document.addEventListener('DOMContentLoaded', () => {
+        // Navigation scroll highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const findings = document.querySelectorAll('[id^="finding-"]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navSubLinks = document.querySelectorAll('.nav-sublink');
+
+        if (sections.length && (navLinks.length || navSubLinks.length)) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            const dot = link.querySelector('span:first-child');
+                            const text = link.querySelector('span:last-child');
+                            if (link.getAttribute('data-section') === id) {
+                                dot.classList.remove('bg-gray-300');
+                                dot.classList.add('bg-indigo-600', 'scale-150');
+                                text.classList.remove('text-gray-500');
+                                text.classList.add('text-gray-800');
+                            } else {
+                                dot.classList.add('bg-gray-300');
+                                dot.classList.remove('bg-indigo-600', 'scale-150');
+                                text.classList.add('text-gray-500');
+                                text.classList.remove('text-gray-800');
+                            }
+                        });
+                        navSubLinks.forEach(link => {
+                            const dot = link.querySelector('span:first-child');
+                            const text = link.querySelector('span:last-child');
+                            if (link.getAttribute('data-section') === id) {
+                                dot.classList.remove('bg-gray-300');
+                                dot.classList.add('bg-indigo-500', 'scale-150');
+                                text.classList.remove('text-gray-400');
+                                text.classList.add('text-gray-600');
+                            } else {
+                                dot.classList.add('bg-gray-300');
+                                dot.classList.remove('bg-indigo-500', 'scale-150');
+                                text.classList.add('text-gray-400');
+                                text.classList.remove('text-gray-600');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            findings.forEach(finding => {
+                observer.observe(finding);
+            });
+        }
+    });
+    </script>
+</body>
+</html> 
