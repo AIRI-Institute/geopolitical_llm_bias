@@ -168,7 +168,7 @@
 
              <!-- Paper/GitHub Buttons -->
              <div class="flex justify-center space-x-2 sm:space-x-4 mb-4">
-                <a href="#" download class="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-full shadow-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 transition-transform hover:scale-105">
+                <a href="https://arxiv.org/abs/2506.06751" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-full shadow-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 transition-transform hover:scale-105">
                     Read the paper
                     <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m4-2l-4-4m0 0l-4 4m4-4v11"></path></svg>
                 </a>
@@ -180,7 +180,7 @@
                 </a>
             </div>
 
-            <a href="#" class="block island my-16 text-left hover:shadow-lg transition-shadow">
+            <a href="https://arxiv.org/abs/2506.06751" target="_blank" rel="noopener noreferrer" class="block island my-16 text-left hover:shadow-lg transition-shadow">
                 <div class="mb-4">
                     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                         📄 Paper
@@ -522,119 +522,125 @@
 
         <!-- Key Findings Section -->
         <section id="key-findings" class="py-16 sm:py-24">
-            <div class="text-lg text-gray-700 space-y-6 mb-20 leading-relaxed">
-                <p class="text-lg text-gray-700 space-y-6 mb-20 leading-relaxed">Our comprehensive analysis reveals five critical insights about geopolitical bias in Large Language Models. These findings challenge assumptions about AI neutrality and expose systematic preferences that persist across different models, languages, and experimental conditions. From the counterintuitive discovery that even Chinese and Russian models favor US narratives, to the alarming ease with which simple prompts can completely flip model preferences, our results demonstrate that current LLMs are far from the neutral arbiters.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">🔬 Key Findings</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">Our comprehensive analysis reveals critical insights that challenge assumptions about AI neutrality and expose systematic preferences across models, languages, and experimental conditions.</p>
             </div>
 
-            <!-- Key Findings -->
-            <div class="space-y-20">
+            <!-- Key Findings Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Finding 1 -->
-                <div id="finding-1" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
-                    <div class="max-w-4xl mx-auto">
-                        <div class="text-center mb-10">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
-                                <span class="text-3xl font-bold text-gray-500">01</span>
+                <div id="finding-1" class="group relative bg-gradient-to-br from-red-50 to-pink-100 p-8 rounded-2xl shadow-lg border border-red-100 transition-all duration-300 hover:shadow-xl hover:scale-105 lg:col-span-2">
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">01</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 mb-4">
+                            🚨 Most Surprising
+                        </span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Even Russian & Chinese Models Prefer American Narratives</h3>
+                        <p class="text-gray-700 leading-relaxed">Models often favor US viewpoints even over their home country's perspectives, revealing the overwhelming influence of Western-centric training data.</p>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-6 text-center border border-red-200">
+                        <div class="text-2xl font-bold text-red-600 mb-2">🇨🇳 Qwen2.5 72B</div>
+                        <div class="flex justify-center items-center space-x-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-600">50%</div>
+                                <div class="text-sm text-gray-600">🇺🇸 USA</div>
                             </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Even Russian and Chinese Models Prefer American Narratives</h3>
-                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Our most surprising finding: models often favor US viewpoints even over those of their home country or other major global powers. This suggests the overwhelming influence of English-language, US-centric training data.</p>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-xl p-10 text-center">
-                            <div class="text-3xl font-bold text-gray-800 mb-3">🇨🇳 Qwen2.5 72B: 🇺🇸 50% vs 🇨🇳 21.4%</div>
-                            <p class="text-gray-600 text-lg">Qwen, a leading Chinese model, favored US viewpoints over Chinese ones in the USA-China pair (Baseline experiment, Chinese language).</p>
+                            <div class="text-2xl text-gray-400">vs</div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-600">21.4%</div>
+                                <div class="text-sm text-gray-600">🇨🇳 China</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Finding 2 -->
-                <div id="finding-2" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
-                    <div class="max-w-4xl mx-auto">
-                        <div class="text-center mb-10">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
-                                <span class="text-3xl font-bold text-gray-500">02</span>
+                <div id="finding-2" class="group relative bg-gradient-to-br from-orange-50 to-yellow-100 p-8 rounded-2xl shadow-lg border border-orange-100 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">02</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800 mb-4">
+                            ⚡ Magic Words
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Simple Instructions Create Dramatic Bias Shifts</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">AI "neutrality" is incredibly fragile—a simple prompt can completely reverse preferences.</p>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-200">
+                        <div class="text-center space-y-3">
+                            <div>
+                                <div class="text-sm text-gray-500">Baseline</div>
+                                <div class="text-lg font-bold">🇺🇸 78.6% vs 🇨🇳 21.4%</div>
                             </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Simple Instructions Create Dramatic Bias Shifts</h3>
-                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">The supposed "neutrality" of LLMs is incredibly fragile. A simple instruction can completely reverse a model's preference, highlighting critical safety risks.</p>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-xl p-10">
-                            <div class="grid md:grid-cols-2 gap-8 text-center">
-                                <div>
-                                    <p class="text-base text-gray-500 mb-2">Baseline</p>
-                                    <div class="text-3xl font-bold">🇺🇸 78.6% vs 🇨🇳 21.4%</div>
-                                </div>
-                                <div>
-                                    <p class="text-base text-gray-500 mb-2">"Chinese Patriot" Prompt</p>
-                                    <div class="text-3xl font-bold">🇺🇸 7.1% vs 🇨🇳 92.9%</div>
-                                </div>
-                            </div>
-                            <div class="text-center mt-8">
-                                <div class="text-5xl text-gray-400">⟷</div>
-                                <p class="text-gray-600 mt-3 text-lg">Complete preference reversal for GPT-4o-mini</p>
+                            <div class="text-2xl">⟷</div>
+                            <div>
+                                <div class="text-sm text-gray-500">"Chinese Patriot"</div>
+                                <div class="text-lg font-bold">🇺🇸 7.1% vs 🇨🇳 92.9%</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Finding 3 -->
-                <div id="finding-3" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
-                    <div class="max-w-4xl mx-auto">
-                        <div class="text-center mb-10">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
-                                <span class="text-3xl font-bold text-gray-500">03</span>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Standard Fairness Instructions Don't Work</h3>
-                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Common debiasing methods had almost no effect. Surface-level instructions are insufficient to counteract deeply embedded training data biases.</p>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-xl p-10 text-center">
-                            <div class="text-4xl font-bold text-gray-400 line-through mb-4">"Be fair and unbiased"</div>
-                            <div class="text-lg text-gray-600">
-                                <p class="mt-2">Negligible change in model preference</p>
-                            </div>
-                        </div>
+                <div id="finding-3" class="group relative bg-gradient-to-br from-purple-50 to-indigo-100 p-8 rounded-2xl shadow-lg border border-purple-100 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">03</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800 mb-4">
+                            🚫 Debiasing Failure
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Standard Fairness Instructions Don't Work</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">Common debiasing methods had almost no effect on deeply embedded biases.</p>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 text-center border border-purple-200">
+                        <div class="text-2xl font-bold text-gray-400 line-through mb-2">"Be fair and unbiased"</div>
+                        <div class="text-sm text-gray-600">Negligible change</div>
                     </div>
                 </div>
 
                 <!-- Finding 4 -->
-                <div id="finding-4" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
-                    <div class="max-w-4xl mx-auto">
-                        <div class="text-center mb-10">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
-                                <span class="text-3xl font-bold text-gray-500">04</span>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-4">AI Can Detect Inconsistency But Maintains Bias</h3>
-                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Models correctly identified logical inconsistencies but frequently reverted to their original bias when forced to choose.</p>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-xl p-10 text-center">
-                            <div class="text-6xl mb-4">🤔</div>
-                            <div class="text-lg text-gray-600">
-                                <p class="mb-2">"Both positions are incorrect..."</p>
-                                <p class="text-gray-500">...but still chooses the preferred narrative</p>
-                            </div>
+                <div id="finding-4" class="group relative bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl shadow-lg border border-green-100 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">04</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 mb-4">
+                            🤔 Paradox
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Detects Inconsistency But Maintains Bias</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">Models identify logical flaws but still revert to preferred narratives when forced to choose.</p>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 text-center border border-green-200">
+                        <div class="text-4xl mb-2">🤔</div>
+                        <div class="text-sm text-gray-600">
+                            <div>"Both are incorrect..."</div>
+                            <div class="text-gray-500">...but picks preferred side</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Finding 5 -->
-                <div id="finding-5" class="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 transition-shadow hover:shadow-xl">
-                    <div class="max-w-4xl mx-auto">
-                        <div class="text-center mb-10">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-8">
-                                <span class="text-3xl font-bold text-gray-500">05</span>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Bias Transcends Language Barriers</h3>
-                            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">Pro-Western bias appears consistently across English, Chinese, Russian, and French, pointing to global training data dominance.</p>
+                <div id="finding-5" class="group relative bg-gradient-to-br from-blue-50 to-cyan-100 p-8 rounded-2xl shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">05</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-4">
+                            🌍 Universal
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Bias Transcends Language Barriers</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">Pro-Western bias appears across English, Chinese, Russian, and French versions.</p>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 text-center border border-blue-200">
+                        <div class="flex justify-center space-x-4 text-2xl mb-2 font-semibold">
+                            <span>🇺🇸 > 🇨🇳</span>
+                            <span>🇬🇧 > 🇨🇳</span>
                         </div>
-                        
-                        <div class="bg-gray-50 rounded-xl p-10 text-center">
-                            <div class="flex justify-center space-x-8 text-4xl mb-4 font-semibold">
-                                <span>🇺🇸 > 🇨🇳</span>
-                                <span>🇬🇧 > 🇨🇳</span>
-                            </div>
-                            <p class="text-gray-600 text-lg">Consistent patterns across all tested languages</p>
-                        </div>
+                        <div class="text-sm text-gray-600">All languages tested</div>
                     </div>
                 </div>
             </div>
@@ -797,13 +803,38 @@
         <!-- Resources & Access -->
         <section id="resources" class="py-20 sm:py-32">
             <h2 class="text-4xl font-bold text-center mb-16">Get the Full Story</h2>
-            <div class="max-w-2xl mx-auto text-center">
-                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                    <h3 class="text-2xl font-bold mb-4">How to Cite</h3>
-                    <code id="citation-text" class="block w-full text-left text-sm p-4 border border-gray-200 rounded-lg bg-gray-50 resize-none">
-                        TODO
-                    </code>
-                    <button id="copy-citation" class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-transform hover:scale-105">Copy Citation</button>
+            <div class="max-w-4xl mx-auto">
+                <!-- Access Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <a href="https://arxiv.org/abs/2506.06751" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 hover:scale-105">
+                        📄 Read the Paper
+                        <svg class="ml-2 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m4-2l-4-4m0 0l-4 4m4-4v11"></path></svg>
+                    </a>
+                    <a href="https://github.com/AIRI-Institute/geopolitical_llm_bias" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 border border-gray-300 text-lg font-medium rounded-full shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200 hover:scale-105">
+                        💻 GitHub Repository
+                        <svg class="ml-2 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="#interactive-explorer" class="inline-flex items-center px-8 py-4 border border-blue-300 text-lg font-medium rounded-full shadow-sm text-blue-700 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 hover:scale-105">
+                        🔍 Interactive Explorer
+                        <svg class="ml-2 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Citation Section -->
+                <div class="max-w-2xl mx-auto text-center">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">How to Cite</h3>
+                        <code id="citation-text" class="block w-full text-left text-sm p-4 border border-gray-200 rounded-lg bg-gray-50 resize-none">@misc{salnikov2025geopolitical,
+      title={Geopolitical biases in LLMs: what are the "good" and the "bad" countries according to contemporary language models}, 
+      author={Mikhail Salnikov and Dmitrii Korzh and Ivan Lazichny and Elvir Karimov and Artyom Iudin and Ivan Oseledets and Oleg Y. Rogov and Alexander Panchenko and Natalia Loukachevitch and Elena Tutubalina},
+      year={2025},
+      eprint={2506.06751},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2506.06751}
+}</code>
+                        <button id="copy-citation" class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-transform hover:scale-105">Copy Citation</button>
+                    </div>
                 </div>
             </div>
         </section>
